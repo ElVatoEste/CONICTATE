@@ -8,7 +8,7 @@ import { signIn } from 'next-auth/react'
 const SignUp = () => {
     const handleSignIn = (role: 'contractor' | 'employee') => {
         signIn('google', {
-            callbackUrl: `${process.env.NEXT_PUBLIC_URL}/dashboard?role=${role}`,
+            callbackUrl: `/dashboard?role=${role}`,
         })
     }
 
