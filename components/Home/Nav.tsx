@@ -33,11 +33,6 @@ const Nav = async () => {
                                 image={session.user?.image}
                             />
 
-                            <Link href="/post-job">
-                                <button className="px-6 py-2 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-800 transition">
-                                    Post a job
-                                </button>
-                            </Link>
                         </>
                     )}
                 </div>

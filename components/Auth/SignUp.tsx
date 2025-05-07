@@ -2,6 +2,7 @@
 import React from 'react'
 import signupImage from '@/public/images/chair.jpg'
 import Image from 'next/image'
+import ImageContratista from '@/public/images/silla1.png'
 import { signIn } from 'next-auth/react'
 
 const SignUp = () => {
@@ -16,14 +17,15 @@ const SignUp = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-4xl">
                 {/* Contratista */}
                 <div className="flex flex-col items-center space-y-4">
-                    <Image
-                        src={signupImage}
-                        alt="Contratista"
-                        width={400}
-                        height={250}
-                        className="rounded-md object-cover cursor-pointer shadow-lg hover:scale-105 transition-transform"
-                        onClick={() => handleSignIn('contractor')}
-                    />
+                    <div className="w-64 h-64 relative">
+                        <Image
+                            src={ImageContratista}
+                            alt="Contratista"
+                            fill
+                            className="rounded-md object-cover cursor-pointer shadow-lg hover:scale-105 transition-transform"
+                            onClick={() => handleSignIn('contractor')}
+                        />
+                    </div>
                     <button
                         type="button"
                         onClick={() => handleSignIn('contractor')}
@@ -35,14 +37,15 @@ const SignUp = () => {
 
                 {/* Empleado */}
                 <div className="flex flex-col items-center space-y-4">
-                    <Image
-                        src={signupImage}
-                        alt="Empleado"
-                        width={400}
-                        height={250}
-                        className="rounded-md object-cover cursor-pointer shadow-lg hover:scale-105 transition-transform"
-                        onClick={() => handleSignIn('employee')}
-                    />
+                    <div className="w-64 h-64 relative">
+                        <Image
+                            src={signupImage}
+                            alt="Empleado"
+                            fill
+                            className="rounded-md object-cover cursor-pointer shadow-lg hover:scale-105 transition-transform"
+                            onClick={() => handleSignIn('employee')}
+                        />
+                    </div>
                     <button
                         type="button"
                         onClick={() => handleSignIn('employee')}
