@@ -4,8 +4,8 @@ import JobData from '@/data'
 import Link from 'next/link'
 const FeatureJobs = () => {
     return (
-        <div className='pt-8 md:pt-20 pb-8 md:pb-12'>
-            <Heading mainHeading={'Feature jobs'} subHeading={'Know your worth and find the job that quality your life'} />
+        <div>
+            <Heading mainHeading={'Trabajos destacados'} subHeading={'Conoce tu valor y encuentra el trabajo que mejore tu calidad de vida'} />
 
             <div className='mt-12 w-[80%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12'>
                 {JobData?.map((job) => {

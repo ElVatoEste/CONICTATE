@@ -7,7 +7,7 @@ export const ApplyButton = () => {
     const [isApplied, setIsApplied] = useState(false)
     const applyHandler = () => {
         if (!isApplied) {
-            toast.success("Submitted Successfully")
+            toast.success("Enviando existosamente")
             setIsApplied(true)
         }
 

@@ -25,14 +25,14 @@ const JobDeatils = async ({ params }: { params: { id: string } }) => {
         </Link>}
       </div>
       <div className='mt-16 w-[80%] mx-auto'>
-        <h1 className='text-xl font-semibold'>Job Description</h1>
+        <h1 className='text-xl font-semibold'>Descripcion</h1>
         <p className='mt-4 text-black text-opacity-70'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis deleniti blanditiis aliquid voluptatem, saepe autem omnis, aperiam consequatur quos voluptas quisquam, corporis facere. Tempore maxime, laboriosam corporis dolorum animi nihil!</p>
         <div className='mt-10 '>
-          <h1 className='text-xl font-semibold'>Key Resposibilities</h1>
+          <h1 className='text-xl font-semibold'>Responsabilidades</h1>
           <p className='mt-4 text-black text-opacity-70'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis deleniti blanditiis aliquid voluptatem, saepe autem omnis, aperiam consequatur quos voluptas quisquam, corporis facere. Tempore maxime, laboriosam corporis dolorum animi nihil!</p>
         </div>
         <div className='mt-10 '>
-          <h1 className='text-xl font-semibold'>Key Resposibilities</h1>
+          <h1 className='text-xl font-semibold'>Habilidades</h1>
           <ul className='mt-4'>
             <li className='text-black text-opacity-70'>React JS</li>
             <li className='text-black text-opacity-70'>HTML5</li>
@@ -43,8 +43,9 @@ const JobDeatils = async ({ params }: { params: { id: string } }) => {
         </div>
 
         <div className='mt-10'>
-          <h1 className='text-xl font-semibold'>Related Jobs</h1>
-          {relatedJobs?.map((job) => <Link key={job.id} href={`/job/jobDetails/${job.id}`} className='space-y-6'>
+          <h1 className='text-xl font-semibold'>Otros trabajos</h1>
+          {relatedJobs?.map((job) =>
+          <Link key={job.id} href={`/job/jobDetails/${job.id}`} className='space-y-10'>
             <JobCard job={job} />
           </Link>
 
