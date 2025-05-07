@@ -2,7 +2,7 @@ import React from 'react'
 import { Heading, JobCategoryCard } from '../../paths'
 const JobCategory = () => {
     return (
-        <div className='pt-8 md:pt-5 pb-8 md:pb-12'>
+        <div className='pt-8 md:pt-1 pb-8 md:pb-12'>
             {/* Heading */}
             <Heading mainHeading="Categoria populares de trabajo" subHeading="trabajos del 2025 - 293 añadidos hoy" />
 
