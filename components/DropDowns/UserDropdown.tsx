@@ -2,7 +2,8 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { signOut } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 interface UserDropdownProps {
     name?: string | null
@@ -12,6 +13,7 @@ interface UserDropdownProps {
 export default function UserDropdown({ name, image }: UserDropdownProps) {
     const [open, setOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
+    const { data: session } = useSession()
 
     // Cierra el dropdown al click fuera
     useEffect(() => {
@@ -24,6 +26,13 @@ export default function UserDropdown({ name, image }: UserDropdownProps) {
         return () => document.removeEventListener('mousedown', onClickOutside)
     }, [])
 
+    const handleProfileClick = () => {
+        console.log(session)
+        const role = session?.user?.role
+        console.log(role)
+        window.location.href = `/dashboard?role=${role}`
+    }
+    
     return (
         <div className="relative" ref={ref}>
             <button
@@ -42,13 +51,19 @@ export default function UserDropdown({ name, image }: UserDropdownProps) {
             {open && (
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
                     <div className="px-4 py-2 border-b">
-                        <p className="text-gray-800 font-medium truncate">{name}</p>
+                        <p className="text-gray-800 font-medium truncate text-center">{name}</p>
                     </div>
+                        <button
+                            className="w-full text-left text-center px-4 py-2 hover:bg-gray-100 transition"
+                            onClick={handleProfileClick}
+                        >
+                            Ver perfil
+                        </button>
                     <button
                         onClick={() => signOut({ callbackUrl: '/' })}
-                        className="w-full text-left px-4 py-2 hover:bg-gray-100 transition"
+                        className="w-full text-left text-red-500 text-center px-4 py-2 hover:bg-gray-100 transition"
                     >
-                        Logout
+                        Salir
                     </button>
                 </div>
             )}
