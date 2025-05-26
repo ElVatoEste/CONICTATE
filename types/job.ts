@@ -6,5 +6,5 @@ export interface Job {
   jobtype: string;
   description?: string;
   requirements?: string;
-  category?: string;
+  category: string;
 }

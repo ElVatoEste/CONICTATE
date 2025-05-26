@@ -1,15 +1,17 @@
 'use client'
 import React from 'react'
-import signupImage from '@/public/images/chair.jpg'
+import signupImage from '@/public/images/chair.png'
 import Image from 'next/image'
 import ImageContratista from '@/public/images/silla1.png'
-import { signIn } from 'next-auth/react'
+import { signIn, signOut } from 'next-auth/react'
 
 const SignUp = () => {
-    const handleSignIn = (role: 'contractor' | 'employee') => {
-        signIn('google', {
-            callbackUrl: `/dashboard?role=${role}`,
-        })
+    const handleSignIn = async (role: 'contractor' | 'employee') => {
+        console.log(role)
+        localStorage.setItem("signup-role", role);
+        await signIn("google", {
+            callbackUrl: `/finish-signin`,
+        });
     }
 
     return (
@@ -33,7 +35,7 @@ const SignUp = () => {
                             src={ImageContratista}
                             alt="Contratista usando laptop"
                             fill
-                            className="object-cover"
+                            className="object-contain"
                         />
                     </div>
                     <div className="p-6 text-center">
@@ -55,7 +57,7 @@ const SignUp = () => {
                             src={signupImage}
                             alt="Empleado satisfecho"
                             fill
-                            className="object-cover"
+                            className="object-contain"
                         />
                     </div>
                     <div className="p-6 text-center">
