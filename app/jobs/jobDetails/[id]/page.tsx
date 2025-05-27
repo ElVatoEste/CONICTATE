@@ -4,6 +4,7 @@
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import JobListPage from "@/app/jobs/page";
 
 interface Job {
   id: string;
@@ -17,7 +18,7 @@ interface Job {
   createdBy?: string;
 }
 
-export default function JobDetailPage() {
+function JobDetailPage() {
   const { id } = useParams();
   const { data: session } = useSession();
   const router = useRouter();
@@ -75,67 +76,69 @@ const [phone, setPhone] = useState('');
   if (!job) return <p>Cargando...</p>;
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 space-y-6">
-      <h1 className="text-2xl font-bold">{job.title}</h1>
-      <p className="text-gray-700">{job.location} - {job.jobtype}</p>
-      <p className="text-gray-700">Salario: {job.salary}</p>
-      <p className="text-gray-700">Categoría: {job.category}</p>
+      <div className="max-w-3xl mx-auto mt-10 space-y-6">
+        <h1 className="text-2xl font-bold">{job.title}</h1>
+        <p className="text-gray-700">{job.location} - {job.jobtype}</p>
+        <p className="text-gray-700">Salario: {job.salary}</p>
+        <p className="text-gray-700">Categoría: {job.category}</p>
 
-      <div>
-        <h2 className="font-semibold">Descripción</h2>
-        <p>{job.description || 'Sin descripción'}</p>
-      </div>
+        <div>
+          <h2 className="font-semibold">Descripción</h2>
+          <p>{job.description || 'Sin descripción'}</p>
+        </div>
 
-      <div>
-        <h2 className="font-semibold">Requisitos</h2>
-        <p>{job.requirements || 'No especificados'}</p>
-      </div>
+        <div>
+          <h2 className="font-semibold">Requisitos</h2>
+          <p>{job.requirements || 'No especificados'}</p>
+        </div>
 
-      {session?.user?.role === 'employee' && (
-        <form onSubmit={handleSubmit} className="space-y-4 mt-6">
-            <label className="block text-sm font-medium">Subí tu CV (.pdf)</label>
-            <input
-            type="file"
-            accept=".pdf"
-            onChange={(e) => setFile(e.target.files?.[0] || null)}
-            className="border p-2 rounded w-full"
-            required
-            />
+        {session?.user?.role === 'employee' && (
+            <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+              <label className="block text-sm font-medium">Subí tu CV (.pdf)</label>
+              <input
+                  type="file"
+                  accept=".pdf"
+                  onChange={(e) => setFile(e.target.files?.[0] || null)}
+                  className="border p-2 rounded w-full"
+                  required
+              />
 
-            <textarea
-            placeholder="Mensaje de presentación"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="border p-2 rounded w-full"
-            required
-            />
+              <textarea
+                  placeholder="Mensaje de presentación"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="border p-2 rounded w-full"
+                  required
+              />
 
-            <input
-            type="text"
-            placeholder="Teléfono (opcional)"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="border p-2 rounded w-full"
-            />
+              <input
+                  type="text"
+                  placeholder="Teléfono (opcional)"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="border p-2 rounded w-full"
+              />
 
-            <input
-            type="url"
-            placeholder="URL de portafolio (opcional)"
-            value={portfolio}
-            onChange={(e) => setPortfolio(e.target.value)}
-            className="border p-2 rounded w-full"
-            />
+              <input
+                  type="url"
+                  placeholder="URL de portafolio (opcional)"
+                  value={portfolio}
+                  onChange={(e) => setPortfolio(e.target.value)}
+                  className="border p-2 rounded w-full"
+              />
 
-            <button
-            type="submit"
-            className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            disabled={loading}
-            >
-            {loading ? 'Enviando...' : 'Postularme'}
-            </button>
-        </form>
+              <button
+                  type="submit"
+                  className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  disabled={loading}
+              >
+                {loading ? 'Enviando...' : 'Postularme'}
+              </button>
+            </form>
         )}
 
-    </div>
+      </div>
   );
 }
+
+export default JobDetailPage;
