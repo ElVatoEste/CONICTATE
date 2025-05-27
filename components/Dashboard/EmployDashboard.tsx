@@ -1,6 +1,7 @@
 // components/Dashboard/EmployDashboard.tsx
 'use client'
 import React from 'react'
+import { FaUserCheck, FaBriefcase, FaThumbsUp, FaCheckCircle } from 'react-icons/fa'
 import { FeatureJobs } from '@/paths'
 
 interface EmployDashboardProps {
@@ -8,56 +9,68 @@ interface EmployDashboardProps {
 }
 
 export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) => {
-    return (
-        <div className="space-y-8">
-            {/* Header */}
-            <header>
-                <h2 className="text-3xl font-bold text-[#05264e]">Panel de Empleado, {userName}</h2>
-                <p className="mt-2 text-gray-700">
-                    Bienvenido a CONICTATE, plataforma inclusiva que conecta empleadores y trabajadores de manera innovadora.
-                </p>
-            </header>
+    // datos estáticos de ejemplo; podrías pasarlos como props o sacarlos de un hook
+    const stats = [
+        { icon: <FaUserCheck className="text-indigo-500 text-2xl" />, label: 'Conexiones', value: 24 },
+        { icon: <FaBriefcase className="text-green-500 text-2xl" />, label: 'Empleos Aplicados', value: 5 },
+        { icon: <FaThumbsUp className="text-yellow-500 text-2xl" />, label: 'Recomendaciones', value: 3 },
+        { icon: <FaCheckCircle className="text-blue-500 text-2xl" />, label: 'Perfil Completo', value: '80%' },
+    ]
 
-            {/* Estadísticas y Objetivos */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Estadísticas */}
-                <div className="bg-white rounded-lg shadow p-6">
-                    <h3 className="text-xl font-semibold mb-4 text-[#05264e]">Tus Estadísticas</h3>
-                    <ul className="space-y-2 text-gray-700">
-                        <li><strong>Conexiones Realizadas:</strong> 24</li>
-                        <li><strong>Empleos Aplicados:</strong> 5</li>
-                        <li><strong>Recomendaciones Recibidas:</strong> 3</li>
-                        <li><strong>Perfil Completo:</strong> 80%</li>
-                    </ul>
-                </div>
-                {/* Objetivos Corto Plazo */}
-                <div className="bg-white rounded-lg shadow p-6">
-                    <h3 className="text-xl font-semibold mb-4 text-[#05264e]">Objetivos a Corto Plazo</h3>
-                    <ul className="list-disc list-inside text-gray-700">
-                        <li>Actualizar perfil con recomendaciones de usuarios</li>
-                        <li>Explorar al menos 3 nuevas ofertas relevantes</li>
-                        <li>Establecer 5 conexiones profesionales</li>
-                    </ul>
-                </div>
-            </section>
+    const objectives = [
+        'Actualizar perfil con recomendaciones',
+        'Explorar 3 nuevas ofertas',
+        'Establecer 5 conexiones'
+    ]
+
+    return (
+        <div className="min-h-screen  p-6 space-y-8">
+            {/* Breadcrumb + Header */}
+            <div className="bg-white p-6 rounded-lg shadow">
+                <nav className="text-sm text-gray-500 mb-2">
+                    Inicio / Dashboard / Empleado
+                </nav>
+                <h1 className="text-3xl font-bold text-gray-800 mb-1">
+                    ¡Hola, {userName}!
+                </h1>
+                <p className="text-gray-600">
+                    Bienvenido a <span className="font-semibold text-indigo-600">CONICTATE</span>, conecta con oportunidades de forma innovadora.
+                </p>
+            </div>
+
+            {/* Estadísticas */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {stats.map((stat) => (
+                    <div key={stat.label} className="bg-white rounded-lg shadow p-5 flex items-center space-x-4">
+                        {stat.icon}
+                        <div>
+                            <p className="text-sm text-gray-500">{stat.label}</p>
+                            <p className="text-2xl font-semibold text-gray-800">{stat.value}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Objetivos a Corto Plazo */}
+            <div className="bg-white rounded-lg shadow p-6">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Objetivos a Corto Plazo</h2>
+                <ul className="space-y-3">
+                    {objectives.map((obj) => (
+                        <li key={obj} className="flex items-start space-x-3">
+              <span className="mt-1 text-green-500">
+                <FaCheckCircle />
+              </span>
+                            <p className="text-gray-700">{obj}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
             {/* Ofertas Recomendadas */}
-            <section>
+            <div className="bg-white rounded-lg shadow p-6">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">Ofertas Recomendadas</h2>
                 <FeatureJobs />
-            </section>
-
-            {/* Nuestros Valores */}
-            <section className="bg-white rounded-lg shadow p-6">
-                <h3 className="text-xl font-semibold mb-4 text-[#05264e]">Nuestros Valores</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-gray-700">
-                    <span>Transparencia</span>
-                    <span>Accesibilidad</span>
-                    <span>Innovación</span>
-                    <span>Confianza</span>
-                    <span>Inclusión</span>
-                    <span>Empatía</span>
-                </div>
-            </section>
+            </div>
         </div>
     )
 }
