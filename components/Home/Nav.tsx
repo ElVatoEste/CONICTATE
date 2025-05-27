@@ -11,7 +11,7 @@ const Nav = async () => {
 
     return (
         <header className="h-[11.5vh] shadow-md">
-            <div className="w-[85%] md:w-[80%] h-full mx-auto flex items-center justify-between">
+            <div className="w-[85%] md:w-[85%] h-full mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="block w-[150px] h-[150px] md:w-[250px] md:h-[250px]">
                     <Image src={LogoImage} alt="logo" className="w-full h-full object-contain" />

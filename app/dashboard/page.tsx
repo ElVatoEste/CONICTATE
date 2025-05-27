@@ -12,7 +12,7 @@ const DashboardPage = async () => {
   console.log("📦 Session user role:", session.user?.role);
 
   return (
-    <main className="flex-grow p-8 min-h-screen flex flex-col">1
+    <main className="flex-grow p-8 min-h-screen flex flex-col">
       <DashboardClient defaultRole={role} userName={userName} />
     </main>
   );
