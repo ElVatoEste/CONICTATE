@@ -27,9 +27,7 @@ export default function UserDropdown({ name, image }: UserDropdownProps) {
     }, [])
 
     const handleProfileClick = () => {
-        console.log(session)
         const role = session?.user?.role
-        console.log(role)
         window.location.href = `/dashboard?role=${role}`
     }
     
@@ -59,6 +57,13 @@ export default function UserDropdown({ name, image }: UserDropdownProps) {
                         >
                             Ver perfil
                         </button>
+                        <button
+                            className="w-full text-left text-center px-4 py-2 hover:bg-gray-100 transition"
+                            onClick={() => window.location.href = '/chat'}
+                            >
+                            Ir al chat
+                        </button>
+
                     <button
                         onClick={() => signOut({ callbackUrl: '/' })}
                         className="w-full text-left text-red-500 text-center px-4 py-2 hover:bg-gray-100 transition"

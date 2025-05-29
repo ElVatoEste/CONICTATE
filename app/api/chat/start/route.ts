@@ -18,7 +18,10 @@ export async function POST(req: Request) {
 
     const senderId = session.user.id;
 
-    console.log(senderId, toUserId);
+    if (toUserId === senderId) {
+      return NextResponse.json({ error: 'No puedes chatear contigo mismo' }, { status: 400 });
+    }
+
     if (!toUserId || !senderId) {
       return NextResponse.json({ error: 'Faltan usuarios' }, { status: 400 });
     }

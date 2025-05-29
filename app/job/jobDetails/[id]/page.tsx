@@ -57,10 +57,10 @@ export default function JobDetailPage() {
         setSending(false);
 
         if (res.ok) {
-            alert('👍 Tu postulación ha sido enviada.');
+            alert('Tu postulación ha sido enviada.');
             router.push('/dashboard');
         } else {
-            alert('❌ Error al enviar la postulación.');
+            alert('Error al enviar la postulación.');
         }
     };
 

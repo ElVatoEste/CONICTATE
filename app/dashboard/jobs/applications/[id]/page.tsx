@@ -44,7 +44,7 @@ export default function ApplicationsPage() {
       ) : (
         <ul className="space-y-4">
           {applications.map(app => (
-            <li key={app.id} className="p-4 border rounded shadow space-y-2">
+            <li key={app.id} className="p-4 border rounded shadow flex flex-col space-y-2">
               <p><strong>Nombre:</strong> {app.userName}</p>
               <p><strong>Email:</strong> {app.userEmail}</p>
               <p><strong>Mensaje:</strong> {app.message}</p>
@@ -68,7 +68,7 @@ export default function ApplicationsPage() {
                     alert('Error al iniciar el chat.');
                   }
                 }}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                className="bg-blue-600 text-white px-3 py-1.5 text-sm rounded hover:bg-blue-700 w-fit"
               >
                 Chatear
               </button>

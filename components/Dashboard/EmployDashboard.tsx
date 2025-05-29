@@ -10,12 +10,12 @@ interface EmployDashboardProps {
 
 export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) => {
     // datos estáticos de ejemplo; podrías pasarlos como props o sacarlos de un hook
-    const stats = [
-        { icon: <FaUserCheck className="text-indigo-500 text-2xl" />, label: 'Conexiones', value: 24 },
-        { icon: <FaBriefcase className="text-green-500 text-2xl" />, label: 'Empleos Aplicados', value: 5 },
-        { icon: <FaThumbsUp className="text-yellow-500 text-2xl" />, label: 'Recomendaciones', value: 3 },
-        { icon: <FaCheckCircle className="text-blue-500 text-2xl" />, label: 'Perfil Completo', value: '80%' },
-    ]
+    // const stats = [
+    //     { icon: <FaUserCheck className="text-indigo-500 text-2xl" />, label: 'Conexiones', value: 24 },
+    //     { icon: <FaBriefcase className="text-green-500 text-2xl" />, label: 'Empleos Aplicados', value: 5 },
+    //     { icon: <FaThumbsUp className="text-yellow-500 text-2xl" />, label: 'Recomendaciones', value: 3 },
+    //     { icon: <FaCheckCircle className="text-blue-500 text-2xl" />, label: 'Perfil Completo', value: '80%' },
+    // ]
 
     const objectives = [
         'Actualizar perfil con recomendaciones',
@@ -39,7 +39,7 @@ export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) =>
             </div>
 
             {/* Estadísticas */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stats.map((stat) => (
                     <div key={stat.label} className="bg-white rounded-lg shadow p-5 flex items-center space-x-4">
                         {stat.icon}
@@ -49,10 +49,10 @@ export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) =>
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             {/* Objetivos a Corto Plazo */}
-            <div className="bg-white rounded-lg shadow p-6">
+            {/* <div className="bg-white rounded-lg shadow p-6">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">Objetivos a Corto Plazo</h2>
                 <ul className="space-y-3">
                     {objectives.map((obj) => (
@@ -64,7 +64,7 @@ export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) =>
                         </li>
                     ))}
                 </ul>
-            </div>
+            </div> */}
 
             {/* Ofertas Recomendadas */}
             <div className="bg-white rounded-lg shadow p-6">

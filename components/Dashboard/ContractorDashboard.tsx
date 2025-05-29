@@ -112,7 +112,7 @@ export const ContractorDashboard: React.FC<ContractorDashboardProps> = ({ userNa
               disabled={loadingReset}
               className="flex items-center bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg shadow disabled:opacity-50"
           >
-            {loadingReset ? 'Reseteando...' : <><FaRecycle className="mr-2" /> Reset Jobs</>}
+            {loadingReset ? 'Reseteando...' : <><FaRecycle className="mr-2" /> Borrar todos</>}
           </button>
         </div>
 
