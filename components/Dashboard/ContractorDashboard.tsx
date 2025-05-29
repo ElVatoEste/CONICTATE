@@ -65,7 +65,7 @@ export const ContractorDashboard: React.FC<ContractorDashboardProps> = ({ userNa
         {/* Header */}
         <div className="bg-white shadow rounded-lg p-6">
           <nav className="text-sm text-gray-500 mb-2">
-            Inicio / Dashboard / Contratista
+            Contratista
           </nav>
           <h1 className="text-2xl font-semibold text-gray-800">
             Bienvenido, {userName}
@@ -155,6 +155,10 @@ export const ContractorDashboard: React.FC<ContractorDashboardProps> = ({ userNa
                         >
                           Ver detalles
                         </Link>
+                        <Link href={`/dashboard/jobs/applications/${job.id}`} className="text-indigo-600 hover:underline text-sm">
+                          Ver postulaciones
+                        </Link>
+
                         <div className="space-x-3">
                           <Link
                               href={`/dashboard/jobs/edit/${job.id}`}

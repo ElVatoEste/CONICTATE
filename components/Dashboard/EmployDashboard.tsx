@@ -28,7 +28,7 @@ export const EmployDashboard: React.FC<EmployDashboardProps> = ({ userName }) =>
             {/* Breadcrumb + Header */}
             <div className="bg-white p-6 rounded-lg shadow">
                 <nav className="text-sm text-gray-500 mb-2">
-                    Inicio / Dashboard / Empleado
+                    Empleado
                 </nav>
                 <h1 className="text-3xl font-bold text-gray-800 mb-1">
                     ¡Hola, {userName}!

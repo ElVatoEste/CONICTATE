@@ -81,7 +81,7 @@ const JobListPage = () => {
 
       <div className="grid gap-4">
         {filtered.map((job) => (
-            <Link key={job.id} href={`/jobs/jobDetails/${job.id}`} className="block">
+            <Link key={job.id} href={`/job/jobDetails/${job.id}`} className="block">
                 <JobCard job={job} />
             </Link>
         ))}

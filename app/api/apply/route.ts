@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
     // 2) Subir el archivo (una sola vez)
     const buffer   = await file.arrayBuffer();
-    const filename = `applications/${userId}_${Date.now()}_${file.name}`;
+    const filename = `applications/${file.name}`;
     const fileRef  = ref(storage, filename);
     await uploadBytes(fileRef, buffer);
     const fileUrl  = await getDownloadURL(fileRef);
